@@ -23,7 +23,7 @@ packages:
 - "rename"
 - "cmake"
 remotes:
-- "url": "https://github.com/loki-project/loki.git"
+- "url": "https://https://gitlab.com/Sevabit/SevaBit.git"
   "dir": "loki"
 files: []
 script: |
