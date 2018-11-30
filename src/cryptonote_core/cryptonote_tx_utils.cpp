@@ -133,7 +133,7 @@ namespace cryptonote
     return correct_key == output_key;
   }
 
-  const int GOVERNANCE_BASE_REWARD_DIVISOR   = 20;
+  const int GOVERNANCE_BASE_REWARD_DIVISOR   = 10;
   const int SERVICE_NODE_BASE_REWARD_DIVISOR = 2;
   uint64_t governance_reward_formula(uint64_t base_reward)
   {
@@ -180,7 +180,7 @@ namespace cryptonote
     }
 
     static_assert(SERVICE_NODE_BASE_REWARD_DIVISOR == 2 &&
-                  GOVERNANCE_BASE_REWARD_DIVISOR == 20,
+                  GOVERNANCE_BASE_REWARD_DIVISOR == 10,
                   "Anytime this changes, you should revisit this code and "
                   "check, because we rely on the service node reward being 50\% "
                   "of the base reward, and does not receive any fees. This isn't "
@@ -205,7 +205,7 @@ namespace cryptonote
 
   uint64_t service_node_reward_formula(uint64_t base_reward, int hard_fork_version)
   {
-    return hard_fork_version >= 9 ? (base_reward / SERVICE_NODE_BASE_REWARD_DIVISOR) : 0;
+    return hard_fork_version >= 9 ? ((base_reward / 10) *4 ) : 0;
   }
 
   uint64_t get_portion_of_reward(uint64_t portions, uint64_t total_service_node_reward)
